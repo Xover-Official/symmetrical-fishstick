@@ -64,15 +64,15 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       onMouseMove={handleMouse}
       onMouseLeave={handleMouseLeave}
       style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-      className="glass-card glass-card-hover p-8 md:p-10 cursor-pointer group"
+      className="glass-card glass-card-hover p-8 md:p-10 cursor-pointer group perspective-1000"
     >
-      <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500">
+      <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500 translate-z-60 preserve-3d">
         {service.icon}
       </div>
-      <h3 className="text-2xl font-display font-bold mb-3 group-hover:text-specialist-orange transition-colors">
+      <h3 className="text-2xl font-display font-bold mb-3 group-hover:text-specialist-orange transition-colors translate-z-40">
         {service.title}
       </h3>
-      <p className="text-white/40 text-sm leading-relaxed mb-6">
+      <p className="text-white/40 text-sm leading-relaxed mb-6 translate-z-20">
         {service.desc}
       </p>
       <div className="flex items-center justify-between">

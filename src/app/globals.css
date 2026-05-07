@@ -70,4 +70,19 @@
   .text-balance {
     text-wrap: balance;
   }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .translate-z-20 {
+    transform: translateZ(20px);
+  }
+  .translate-z-40 {
+    transform: translateZ(40px);
+  }
+  .translate-z-60 {
+    transform: translateZ(60px);
+  }
 }
