@@ -6,12 +6,12 @@ import gsap from 'gsap'
 interface ScrambleTextProps {
   text: string
   className?: string
-  as?: React.ElementType
+  as?: 'h1' | 'h2' | 'h3' | 'span' | 'div'
 }
 
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+'
 
-export default function ScrambleText({ text, className = '', as: Component = 'span' }: ScrambleTextProps) {
+export default function ScrambleText({ text, className = '', as = 'span' }: ScrambleTextProps) {
   const [displayText, setDisplayText] = useState(text)
 
   const scramble = useCallback(() => {
@@ -40,12 +40,16 @@ export default function ScrambleText({ text, className = '', as: Component = 'sp
     })
   }, [text])
 
-  return (
-    <Component 
-      className={className}
-      onMouseEnter={scramble}
-    >
-      {displayText}
-    </Component>
-  )
+  const props = {
+    className,
+    onMouseEnter: scramble,
+    children: displayText
+  }
+
+  if (as === 'h1') return <h1 {...props} />
+  if (as === 'h2') return <h2 {...props} />
+  if (as === 'h3') return <h3 {...props} />
+  if (as === 'div') return <div {...props} />
+  
+  return <span {...props} />
 }

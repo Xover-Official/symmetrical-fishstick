@@ -5,10 +5,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'brand-bg': '#121212',
-        'brand-text': '#E3C5A0',
-        'gold-champagne': '#E3C5A0',
-        'charcoal-deep': '#121212',
+        'brand-bg': '#050505',
+        'brand-text': '#E5E5E7',
+        'gold-champagne': '#E5E5E7',
+        'charcoal-deep': '#050505',
         'space-black': '#050505',
         'titanium': '#E5E5E7',
         'specialist-orange': '#FF6B35',
@@ -27,6 +27,18 @@ const config: Config = {
       padding: {
         'double': '4rem',
         'triple': '8rem',
+      },
+      spacing: {
+        'fib-1': '8px',
+        'fib-2': '13px',
+        'fib-3': '21px',
+        'fib-4': '34px',
+        'fib-5': '55px',
+        'fib-6': '89px',
+        'fib-7': '144px',
+        'fib-8': '233px',
+        'fib-9': '377px',
+        'fib-10': '610px',
       },
     },
   },

@@ -20,35 +20,35 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-      scrolled ? 'py-4 bg-charcoal-deep/90 backdrop-blur-xl border-b border-gold-champagne/10' : 'py-10 bg-transparent'
+      scrolled ? 'py-fib-2 bg-space-black/90 backdrop-blur-xl border-b border-white/5' : 'py-fib-6 bg-transparent'
     }`}>
-      <div className="max-w-[1400px] mx-auto px-8 md:px-16 flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto px-fib-4 md:px-fib-7 flex items-center justify-between">
         <div className="flex flex-col">
-          <a href="#" className="text-xl md:text-2xl font-display tracking-widest-plus uppercase text-gold-champagne">
+          <a href="#" className="text-xl md:text-2xl font-display tracking-widest-plus uppercase text-titanium">
             Gill Boutique
           </a>
-          <span className="mono-text text-[7px] text-gold-champagne/40 tracking-[0.4em] -mt-1">TECHNICAL_LAB_LHR</span>
+          <span className="mono-text text-[7px] text-specialist-orange tracking-[0.4em] -mt-1">TECHNICAL_LAB_LHR</span>
         </div>
 
-        <div className="hidden md:flex items-center gap-12">
+        <div className="hidden md:flex items-center gap-fib-6">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-[10px] uppercase tracking-ultra-wide text-gold-champagne/50 hover:text-gold-champagne transition-colors duration-500"
+              className="text-[10px] uppercase tracking-ultra-wide text-titanium/50 hover:text-titanium transition-colors duration-500"
             >
               {link.name}
             </a>
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
-           <div className="hidden lg:block mono-text text-[8px] text-gold-champagne/30 text-right">
+        <div className="flex items-center gap-fib-4">
+           <div className="hidden lg:block mono-text text-[8px] text-titanium/30 text-right">
              SRVR_LHR_01
              <br />
-             v3.4.0_SECURE
+             v4.0.0_STORY
            </div>
-           <button className="md:hidden text-[10px] uppercase tracking-ultra-wide text-gold-champagne">
+           <button className="md:hidden text-[10px] uppercase tracking-ultra-wide text-titanium">
              [ MENU ]
            </button>
         </div>
