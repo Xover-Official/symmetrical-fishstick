@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
+import { TechnicalDecor } from '@/components/TechnicalDecor'
+import { MagneticCursor } from '@/components/MagneticCursor'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -43,6 +45,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable} ${mono.variable}`}>
       <body className="bg-brand-bg text-brand-text font-body antialiased selection:bg-brand-text selection:text-brand-bg">
+        <TechnicalDecor />
+        <MagneticCursor />
         {children}
       </body>
     </html>
