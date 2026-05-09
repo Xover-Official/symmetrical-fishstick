@@ -41,6 +41,12 @@ export default function Hero() {
         />
       </motion.div>
 
+      <div className="absolute top-24 left-6 tech-label">
+        CORE_TEMP: 32C
+      </div>
+      <div className="absolute top-24 right-6 tech-label">
+        LINK_STRENGTH: 99%
+      </div>
       <div className="relative z-20 max-w-[1440px] mx-auto w-full">
         <div className="flex flex-col gap-fib-2 md:gap-fib-4">
           <motion.div

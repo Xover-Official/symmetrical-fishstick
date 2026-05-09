@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from '@/components/Navbar'
 import Lenis from 'lenis'
 import Hero from '@/components/Hero'
@@ -9,13 +9,13 @@ import Accessories from '@/components/Accessories'
 import LivePrices from '@/components/LivePrices'
 import Testimonials from '@/components/Testimonials'
 import Footer from '@/components/Footer'
+import { GlobalOperations } from '@/components/GlobalOperations'
+import { TechnicalDecor } from '@/components/TechnicalDecor'
+import { MagneticCursor } from '@/components/MagneticCursor'
 import { motion, useScroll, useSpring } from 'framer-motion'
-import gsap from 'gsap'
 
 export default function Home() {
   const [mounted, setMounted] = useState(false)
-  const cursorRingRef = useRef<HTMLDivElement>(null)
-  const cursorDotRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setMounted(true)
@@ -32,64 +32,8 @@ export default function Home() {
 
     requestAnimationFrame(raf)
 
-    // Magnetic Cursor Implementation
-    const onMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e
-      
-      const targets = document.querySelectorAll('button, a, .cursor-pointer')
-      let isOverTarget = false
-      let targetRect: DOMRect | null = null
-
-      targets.forEach(target => {
-        const rect = target.getBoundingClientRect()
-        if (
-          clientX >= rect.left &&
-          clientX <= rect.right &&
-          clientY >= rect.top &&
-          clientY <= rect.bottom
-        ) {
-          isOverTarget = true
-          targetRect = rect
-        }
-      })
-
-      if (isOverTarget && targetRect) {
-        const { left, top, width, height } = targetRect as DOMRect
-        const centerX = left + width / 2
-        const centerY = top + height / 2
-        
-        gsap.to(cursorRingRef.current, {
-          x: centerX - 30,
-          y: centerY - 30,
-          width: 60,
-          height: 60,
-          duration: 0.3,
-          ease: "power2.out"
-        })
-      } else {
-        gsap.to(cursorRingRef.current, {
-          x: clientX - 20,
-          y: clientY - 20,
-          width: 40,
-          height: 40,
-          duration: 0.5,
-          ease: "power2.out"
-        })
-      }
-      
-      gsap.to(cursorDotRef.current, {
-        x: clientX - 2,
-        y: clientY - 2,
-        duration: 0.1,
-        ease: "power2.out"
-      })
-    }
-
-    window.addEventListener('mousemove', onMouseMove)
-
     return () => {
       lenis.destroy()
-      window.removeEventListener('mousemove', onMouseMove)
     }
   }, [])
 
@@ -103,12 +47,17 @@ export default function Home() {
   if (!mounted) return null
 
   return (
-    <main className="relative min-h-screen bg-space-black text-titanium selection:bg-titanium selection:text-space-black">
-      {/* Background elements */}
-      <div className="mesh-gradient" />
-      <div className="film-grain" />
-      
-      {/* Floating Orbs */}
+    <main className="relative min-h-screen bg-brand-bg text-brand-text selection:bg-brand-text selection:text-brand-bg">
+      <TechnicalDecor />
+      <MagneticCursor />
+
+      {/* Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[2px] bg-white/40 z-[10002] origin-left"
+        style={{ scaleX }}
+      />
+
+      {/* Floating Orbs (Enhanced) */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
         <motion.div 
           animate={{
@@ -117,7 +66,7 @@ export default function Home() {
             scale: [1, 1.2, 0.9, 1],
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-specialist-orange/10 blur-[150px] rounded-full"
+          className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-white/[0.03] blur-[150px] rounded-full"
         />
         <motion.div 
           animate={{
@@ -126,44 +75,28 @@ export default function Home() {
             scale: [1, 1.3, 0.8, 1],
           }}
           transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[-10%] right-[-10%] w-[900px] h-[900px] bg-apple-blue/5 blur-[180px] rounded-full"
+          className="absolute bottom-[-10%] right-[-10%] w-[900px] h-[900px] bg-white/[0.02] blur-[180px] rounded-full"
         />
-        <motion.div 
-          animate={{
-            x: [0, 80, -40, 0],
-            y: [0, 60, -30, 0],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-titanium/5 blur-[120px] rounded-full"
-        />
-      </div>
-
-      {/* Progress Bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-specialist-orange z-[10002] origin-left"
-        style={{ scaleX }}
-      />
-
-      {/* Custom Cursor */}
-      <div ref={cursorRingRef} className="cursor-ring hidden md:block" />
-      <div ref={cursorDotRef} className="cursor-dot hidden md:block" />
-
-      {/* Technical Sidebars */}
-      <div className="fixed top-1/2 left-fib-4 -translate-y-1/2 z-[100] hidden lg:block">
-        <div className="mono-text text-[8px] text-titanium/20 vertical-text flex flex-col gap-fib-5 h-64 justify-between">
-          <span>VISUAL_STORY_ENGINE_v4.0</span>
-          <span className="h-fib-5 w-[1px] bg-titanium/20 mx-auto" />
-          <span>PHI_RATIO_ACTIVE</span>
-        </div>
       </div>
 
       <Navbar />
       <Hero />
       <Services />
+      <GlobalOperations />
       <LivePrices />
       <Accessories />
       <Testimonials />
       <Footer />
+      
+      {/* Global Metadata */}
+      <div className="fixed bottom-12 left-6 z-50 pointer-events-none hidden md:block">
+        <p className="mono-text text-[8px] text-white/20 mb-1">SESSION_ID</p>
+        <p className="font-mono text-[10px] text-white/40">GILL-8839-X2</p>
+      </div>
+      <div className="fixed bottom-12 right-6 z-50 pointer-events-none hidden md:block text-right">
+        <p className="mono-text text-[8px] text-white/20 mb-1">LOCAL_TIME</p>
+        <p className="font-mono text-[10px] text-white/40">{new Date().toLocaleTimeString('en-US', { hour12: false })} PKT</p>
+      </div>
     </main>
   )
 }
