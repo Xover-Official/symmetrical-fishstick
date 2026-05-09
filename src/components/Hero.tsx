@@ -26,7 +26,7 @@ export default function Hero() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat ken-burns opacity-40 grayscale"
           style={{ 
-            backgroundImage: 'url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2070")' 
+            backgroundImage: 'url("https://images.unsplash.com/photo-1631415280243-207e0462aa67?auto=format&fit=crop&q=80&w=2070")' 
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal-deep/80 via-transparent to-charcoal-deep" />

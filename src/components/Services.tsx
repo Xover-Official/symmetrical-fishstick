@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import AnimatedDivider from './AnimatedDivider'
 import ScrambleText from './ScrambleText'
+import Image from 'next/image'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -15,18 +16,24 @@ const pillars = [
     title: 'Curated Acquisition',
     desc: 'Expertly sourced, high-grade iPhones that meet our 45-point technical standard. We only deal in hardware of the highest integrity.',
     grid: 'md:col-span-8 md:row-span-1',
+    image: 'https://images.unsplash.com/photo-1556656793-062ff9878273?auto=format&fit=crop&q=80&w=1200',
+    artDirection: 'Elegant full-device shot'
   },
   {
     id: '02',
     title: 'Strategic Buy-Back',
     desc: 'Fair market evaluation for your existing hardware. We provide a transparent bridge between generations.',
     grid: 'md:col-span-4 md:row-span-2',
+    image: 'https://images.unsplash.com/photo-1616348436168-de43ad0db179?auto=format&fit=crop&q=80&w=800',
+    artDirection: 'Stack of 3 iPhones side profile, aligned like gold bars'
   },
   {
     id: '03',
     title: 'Technical Restoration',
     desc: 'Clinical-grade repairs, micro-soldering, and performance optimization for the modern device. Bringing hardware back to its original intent.',
     grid: 'md:col-span-8 md:row-span-1',
+    image: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80&w=1200',
+    artDirection: 'Macro of surgical screwdriver touching a gold-plated screw'
   },
 ]
 
@@ -54,31 +61,44 @@ export default function Services() {
           {pillars.map((pillar) => (
             <div 
               key={pillar.id} 
-              className={`group relative p-8 md:p-12 border border-gold-champagne/10 hover:border-gold-champagne/30 transition-all duration-700 bg-charcoal-deep/50 backdrop-blur-sm flex flex-col justify-between min-h-[300px] ${pillar.grid}`}
+              className={`group relative overflow-hidden border border-gold-champagne/10 hover:border-gold-champagne/30 transition-all duration-700 bg-charcoal-deep/50 backdrop-blur-sm flex flex-col justify-between min-h-[400px] ${pillar.grid}`}
             >
-              <div className="flex justify-between items-start">
-                <span className="mono-text text-xl text-gold-champagne/20">{pillar.id}</span>
-                <div className="w-8 h-8 rounded-full border border-gold-champagne/20 flex items-center justify-center group-hover:bg-gold-champagne group-hover:text-charcoal-deep transition-all duration-500">
-                  <span className="text-xs">→</span>
-                </div>
-              </div>
-              
-              <div>
-                <ScrambleText 
-                  as="h3" 
-                  text={pillar.title} 
-                  className="text-3xl md:text-4xl font-display mb-6 block"
+              {/* Background Image with Overlay */}
+              <div className="absolute inset-0 z-0">
+                <Image 
+                  src={pillar.image} 
+                  alt={pillar.artDirection}
+                  fill
+                  className="object-cover opacity-20 grayscale group-hover:scale-110 group-hover:opacity-40 transition-all duration-1000 ease-out"
                 />
-                <p className="text-gold-champagne/60 font-body text-sm md:text-base leading-relaxed max-w-md opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700">
-                  {pillar.desc}
-                </p>
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-deep via-charcoal-deep/20 to-transparent" />
               </div>
 
-              {/* Decorative technical corner */}
-              <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                <span className="mono-text text-[8px] text-gold-champagne/30 tracking-widest">
-                  STATUS: VERIFIED_PROCESS
-                </span>
+              <div className="relative z-10 p-8 md:p-12 flex flex-col justify-between h-full">
+                <div className="flex justify-between items-start">
+                  <span className="mono-text text-xl text-gold-champagne/20">{pillar.id}</span>
+                  <div className="w-8 h-8 rounded-full border border-gold-champagne/20 flex items-center justify-center group-hover:bg-gold-champagne group-hover:text-charcoal-deep transition-all duration-500">
+                    <span className="text-xs">→</span>
+                  </div>
+                </div>
+                
+                <div>
+                  <ScrambleText 
+                    as="h3" 
+                    text={pillar.title} 
+                    className="text-3xl md:text-4xl font-display mb-6 block"
+                  />
+                  <p className="text-gold-champagne/60 font-body text-sm md:text-base leading-relaxed max-w-md opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700">
+                    {pillar.desc}
+                  </p>
+                </div>
+
+                {/* Decorative technical corner */}
+                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                  <span className="mono-text text-[8px] text-gold-champagne/30 tracking-widest">
+                    STATUS: VERIFIED_PROCESS
+                  </span>
+                </div>
               </div>
             </div>
           ))}
