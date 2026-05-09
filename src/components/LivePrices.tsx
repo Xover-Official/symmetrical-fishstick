@@ -34,6 +34,12 @@ export default function LivePrices() {
 
   return (
     <section id="live-prices" className="py-fib-8 md:py-fib-9 px-fib-4 md:px-fib-7 bg-transparent text-titanium overflow-hidden relative">
+      <div className="absolute top-12 left-6 tech-label">
+        MARKET_NODE: LAHORE_01
+      </div>
+      <div className="absolute top-12 right-6 tech-label">
+        DATA_SYNERGY: 100%
+      </div>
       {/* Decorative background element */}
       <div className="absolute top-0 right-0 p-fib-7 opacity-5 pointer-events-none">
         <div className="mono-text text-[15vw] leading-none">DATA_FEED</div>

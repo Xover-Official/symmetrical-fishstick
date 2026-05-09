@@ -13,7 +13,13 @@ const products = [
 
 export default function Accessories() {
   return (
-    <section id="accessories" className="py-fib-8 md:py-fib-9 px-fib-4 md:px-fib-7 bg-transparent text-titanium">
+    <section id="accessories" className="relative py-fib-8 md:py-fib-9 px-fib-4 md:px-fib-7 bg-transparent text-titanium">
+      <div className="absolute top-12 left-6 tech-label">
+        INVENTORY_SCAN: COMPLETED
+      </div>
+      <div className="absolute top-12 right-6 tech-label">
+        INTEGRITY_CHECK: 100%
+      </div>
       <div className="max-w-[1400px] mx-auto">
         <div className="mb-fib-7 flex flex-col md:flex-row justify-between items-end gap-fib-4">
           <div>

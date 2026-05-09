@@ -66,7 +66,13 @@ function Calculator() {
 
 export default function Services() {
   return (
-    <section id="services" className="py-fib-8 md:py-fib-9 px-fib-4 md:px-fib-7 bg-transparent text-titanium">
+    <section id="services" className="relative py-fib-8 md:py-fib-9 px-fib-4 md:px-fib-7 bg-transparent text-titanium">
+      <div className="absolute top-0 left-6 tech-label">
+        BENTO_GRID_V4
+      </div>
+      <div className="absolute bottom-0 right-6 tech-label">
+        PHI_CONSTANT: 1.618
+      </div>
       <div className="max-w-[1440px] mx-auto">
         <div className="mb-fib-7 flex flex-col md:flex-row md:items-end justify-between gap-fib-4">
           <div>
