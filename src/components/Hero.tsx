@@ -35,7 +35,7 @@ export default function Hero() {
         <div 
           className="w-full h-full bg-cover bg-center grayscale contrast-125 opacity-30"
           style={{ 
-            backgroundImage: 'url("https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80&w=1200")',
+            backgroundImage: 'url("https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200")',
             maskImage: 'radial-gradient(circle, black, transparent 80%)'
           }}
         />

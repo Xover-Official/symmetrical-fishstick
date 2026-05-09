@@ -40,16 +40,18 @@
                 radial-gradient(at 50% 50%, var(--mesh-1) 0, transparent 50%),
                 radial-gradient(at 0% 100%, var(--mesh-2) 0, transparent 50%),
                 radial-gradient(at 100% 100%, var(--mesh-3) 0, transparent 50%),
-                radial-gradient(at 80% 20%, var(--mesh-4) 0, transparent 40%);
+                radial-gradient(at 80% 20%, var(--mesh-4) 0, transparent 40%),
+                radial-gradient(at 20% 80%, rgba(255, 107, 53, 0.03) 0, transparent 30%); /* Subtle orange hint */
     background-color: var(--mesh-1);
-    animation: mesh-shift 30s ease-in-out infinite alternate;
-    background-size: 150% 150%;
+    animation: mesh-shift 40s ease-in-out infinite alternate;
+    background-size: 200% 200%;
   }
 
   @keyframes mesh-shift {
     0% { background-position: 0% 0%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 50% 100%; }
+    33% { background-position: 100% 30%; }
+    66% { background-position: 40% 100%; }
+    100% { background-position: 50% 50%; }
   }
 
   /* Animated Film Grain */
@@ -61,7 +63,7 @@
     height: 100%;
     z-index: 9999;
     pointer-events: none;
-    opacity: 0.05;
+    opacity: 0.07; /* Slightly increased */
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     animation: grain-dance 8s steps(10) infinite;
   }

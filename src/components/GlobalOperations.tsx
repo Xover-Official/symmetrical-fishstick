@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Globe } from './Globe';
-import { motion } from 'framer-motion';
 
 export const GlobalOperations: React.FC = () => {
   return (
@@ -47,6 +46,11 @@ export const GlobalOperations: React.FC = () => {
             <p>[08:42:12] HANDSHAKE_SUCCESSFUL (ID: GILL_SAT_1)</p>
             <p>[08:42:14] STREAMING_REAL_TIME_MARKET_DATA</p>
             <p>[08:42:15] PK_NODE_LAHORE: ACTIVE</p>
+            <p>[08:42:18] COMPONENT_AUTHENTICITY_VERIFIED</p>
+            <p>[08:42:21] ENCRYPTED_CHANNEL_STABILIZED</p>
+            <p>[08:42:24] DIAGNOSTIC_OVERLAY_SYNCING...</p>
+            <p>[08:42:27] UPLINK_STRENGTH_NOMINAL</p>
+            <p>[08:42:30] SECURE_HANDOFF_COMPLETE</p>
           </div>
         </div>
       </div>

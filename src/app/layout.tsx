@@ -21,17 +21,17 @@ const mono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Gill Mobile Boutique & Technical Lab | iPhone Specialists',
-  description: 'High-end iPhone restoration, curated acquisition, and strategic buy-back in Abrar Market, Lahore.',
-  keywords: 'iPhone repair Lahore, mobile repair Abrar Market, iPhone specialist Pakistan, sell iPhone Lahore, mobile accessories Lahore',
+  title: 'GILL_MOBILE_BOUTIQUE | Advanced Technical Laboratory',
+  description: 'High-fidelity iPhone restoration, technical hardware auditing, and strategic component acquisition. Located in NODE_LAHORE, Abrar Market.',
+  keywords: 'iPhone repair Lahore, technical lab, hardware restoration, iPhone specialists, Abrar Market, high-fidelity mobile services, Pakistan tech boutique',
   openGraph: {
-    title: 'Gill Mobile Boutique & Technical Lab | iPhone Specialists',
-    description: 'Bespoke iPhone services. Technical restoration and curated acquisition in Abrar Market, Lahore.',
+    title: 'GILL_MOBILE_BOUTIQUE | Technical Laboratory',
+    description: 'Bespoke iPhone restoration and technical auditing. Operating in NODE_LAHORE.',
     type: 'website',
-    locale: 'ur_PK',
+    locale: 'en_PK',
   },
   icons: {
-    icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23E3C5A0" width="100" height="100" rx="20"/><text x="50" y="65" font-size="60" font-weight="bold" fill="%23121212" text-anchor="middle">G</text></svg>',
+    icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23FF6B35" width="100" height="100" rx="20"/><text x="50" y="65" font-size="60" font-weight="bold" fill="%23050505" text-anchor="middle">G</text></svg>',
   },
 }
 
