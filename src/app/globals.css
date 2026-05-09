@@ -15,6 +15,7 @@
     background-color: var(--brand-bg);
     color: var(--brand-text);
     scroll-behavior: smooth;
+    cursor: none; /* Hide default cursor for the custom one */
   }
 
   body {
@@ -72,8 +73,8 @@
     border-radius: 50%;
     pointer-events: none;
     z-index: 10000;
-    transition: transform 0.1s ease-out, width 0.3s ease, height 0.3s ease, background 0.3s ease;
     mix-blend-mode: difference;
+    will-change: transform;
   }
 
   .cursor-dot {
@@ -87,6 +88,7 @@
     pointer-events: none;
     z-index: 10001;
     mix-blend-mode: difference;
+    will-change: transform;
   }
 
   /* Custom scrollbar */
@@ -107,28 +109,35 @@
   }
 }
 
-@layer utilities {
+@layer components {
   .glassmorphism {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    @apply bg-white/[0.03] backdrop-blur-[12px] border border-white/[0.05];
   }
 
+  .mono-text {
+    @apply font-mono uppercase tracking-[0.2em] text-[10px];
+  }
+}
+
+@layer utilities {
   .text-shadow-xl {
     text-shadow: 0 0 20px rgba(0,0,0,0.5);
   }
 
-  .magnetic-area {
-    display: inline-block;
-  }
-
-  .parallax-bg {
-    will-change: transform;
+  .vertical-text {
+    writing-mode: vertical-rl;
   }
 
   .golden-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 34px; /* fib-4 */
+  }
+
+  /* Hide cursor on mobile */
+  @media (max-width: 768px) {
+    html {
+      cursor: auto;
+    }
   }
 }
