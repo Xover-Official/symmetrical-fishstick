@@ -36,7 +36,18 @@ export default function Home() {
   if (!mounted) return null
 
   return (
-    <main className="relative min-h-screen bg-brand-bg text-brand-text">
+    <main className="relative min-h-screen bg-charcoal-deep text-gold-champagne selection:bg-gold-champagne selection:text-charcoal-deep">
+      {/* Global Technical Overlays */}
+      <div className="fixed inset-0 pointer-events-none z-[100] border border-gold-champagne/5 m-4 box-border hidden md:block" />
+      
+      <div className="fixed top-1/2 left-4 -translate-y-1/2 z-[100] hidden lg:block">
+        <div className="mono-text text-[8px] text-gold-champagne/20 vertical-text flex flex-col gap-8 h-64 justify-between">
+          <span>HARDWARE_AUDIT_LOG_00129</span>
+          <span className="h-12 w-[1px] bg-gold-champagne/20 mx-auto" />
+          <span>COORDS_31.5204_74.3587</span>
+        </div>
+      </div>
+
       <Navbar />
       <Hero />
       <Services />

@@ -5,8 +5,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'brand-bg': '#0a0a0a',
-        'brand-text': '#d4c6b9',
+        'brand-bg': '#121212',
+        'brand-text': '#E3C5A0',
+        'gold-champagne': '#E3C5A0',
+        'charcoal-deep': '#121212',
         'space-black': '#050505',
         'titanium': '#E5E5E7',
         'specialist-orange': '#FF6B35',
@@ -16,6 +18,7 @@ const config: Config = {
       fontFamily: {
         'display': ['var(--font-playfair)', 'serif'],
         'body': ['var(--font-inter)', 'sans-serif'],
+        'mono': ['var(--font-mono)', 'monospace'],
       },
       letterSpacing: {
         'widest-plus': '0.2em',
