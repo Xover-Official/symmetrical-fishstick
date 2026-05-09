@@ -1,106 +1,119 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import ScrambleText from './ScrambleText'
 
 export default function Hero() {
-  const lineRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (lineRef.current) {
-      gsap.to(lineRef.current, {
-        height: '100%',
-        duration: 1.5,
-        repeat: -1,
-        ease: 'power2.inOut',
-        yoyo: true,
-      })
-    }
-  }, [])
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { scrollY } = useScroll()
+  
+  const textY = useTransform(scrollY, [0, 500], [0, 200])
+  const imageY = useTransform(scrollY, [0, 500], [0, -100])
+  const opacity = useTransform(scrollY, [0, 300], [1, 0])
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center px-8 md:px-16 overflow-hidden bg-charcoal-deep">
-      {/* Ken Burns Background */}
-      <div className="absolute inset-0 z-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat ken-burns opacity-40 grayscale"
-          style={{ 
-            backgroundImage: 'url("https://images.unsplash.com/photo-1631415280243-207e0462aa67?auto=format&fit=crop&q=80&w=2070")' 
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal-deep/80 via-transparent to-charcoal-deep" />
+    <section 
+      ref={containerRef}
+      className="relative min-h-screen flex flex-col justify-center px-fib-4 md:px-fib-7 overflow-hidden bg-transparent pt-fib-9"
+    >
+      {/* Massive Background Text */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none select-none">
+        <motion.h1 
+          style={{ y: textY }}
+          className="text-[25vw] font-display font-black text-white/[0.02] leading-none tracking-tighter"
+        >
+          PRECISION
+        </motion.h1>
       </div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto w-full pt-20">
-        <div className="flex flex-col gap-2 md:gap-4">
-          <div className="overflow-hidden">
-             <ScrambleText 
-              as="h1" 
-              text="PRECISION" 
-              className="text-6xl md:text-8xl lg:text-9xl font-display leading-[1.1] md:leading-[1.05] block"
-            />
-          </div>
-          <div className="overflow-hidden md:pl-24 lg:pl-48">
+      {/* Parallax Macro Visual */}
+      <motion.div 
+        style={{ y: imageY, opacity }}
+        className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-[80vh] z-10 hidden lg:block opacity-40"
+      >
+        <div 
+          className="w-full h-full bg-cover bg-center grayscale contrast-125"
+          style={{ 
+            backgroundImage: 'url("https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80&w=1200")',
+            maskImage: 'linear-gradient(to left, black, transparent)'
+          }}
+        />
+      </motion.div>
+
+      <div className="relative z-20 max-w-[1400px] mx-auto w-full">
+        <div className="flex flex-col gap-fib-2 md:gap-fib-4">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <span className="mono-text text-specialist-orange mb-fib-3 block">HIGH_DEFINITION_VISUAL_STORY</span>
             <ScrambleText 
               as="h1" 
-              text="CRAFT" 
-              className="text-6xl md:text-8xl lg:text-9xl font-display leading-[1.1] md:leading-[1.05] block italic text-gold-champagne"
+              text="THE ART OF" 
+              className="text-6xl md:text-8xl lg:text-9xl font-display leading-[0.9] block tracking-tighter"
             />
-          </div>
-          <div className="overflow-hidden">
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+            className="md:pl-fib-7"
+          >
             <ScrambleText 
               as="h1" 
               text="RESTORATION" 
-              className="text-6xl md:text-8xl lg:text-9xl font-display leading-[1.1] md:leading-[1.05] block"
+              className="text-6xl md:text-8xl lg:text-9xl font-display leading-[0.9] block italic text-titanium tracking-tighter"
             />
-          </div>
+          </motion.div>
         </div>
         
-        <div className="mt-16 md:mt-24 grid md:grid-cols-2 gap-16 items-end">
-          <div className="max-w-md">
-            <p className="text-sm md:text-base text-gold-champagne/70 leading-relaxed font-body tracking-wider uppercase">
-              Gill Mobile Boutique & Technical Lab. 
-              <br />
-              High-end iPhone restoration and curated acquisition. 
-              <br />
-              Clinical precision. Bespoke service.
+        <div className="mt-fib-7 md:mt-fib-8 grid md:grid-cols-2 gap-fib-7 items-end">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="max-w-md"
+          >
+            <p className="text-base md:text-lg text-titanium/60 leading-relaxed font-body">
+              Engineered for those who demand absolute fidelity. We specialize in the clinical restoration of Apple hardware, where every micron matters and every detail tells a story.
             </p>
-          </div>
-          <div className="flex flex-col items-start md:items-end gap-6">
-             <div className="mono-text text-gold-champagne/40">
-               SYSTEM_STATE: OPERATIONAL
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="flex flex-col items-start md:items-end gap-fib-4"
+          >
+             <div className="mono-text text-titanium/30 text-right">
+               ESTABLISHED_IN_LAHORE
                <br />
-               LOCATION: 31.5204° N, 74.3587° E
+               ABRAR_MARKET_STUDIO_24
              </div>
-             <div className="flex gap-8">
-               <a href="#services" className="text-[10px] uppercase tracking-ultra-wide group flex items-center gap-4 border-b border-gold-champagne/20 pb-2 hover:border-gold-champagne transition-colors duration-500">
-                 Explore Services
-                 <span className="group-hover:translate-x-2 transition-transform duration-500">→</span>
-               </a>
-               <a href="https://wa.me/923231459121" className="text-[10px] uppercase tracking-ultra-wide group flex items-center gap-4 border-b border-gold-champagne/20 pb-2 hover:border-gold-champagne transition-colors duration-500">
-                 Consultation
-                 <span className="group-hover:translate-x-2 transition-transform duration-500">→</span>
-               </a>
+             <div className="flex gap-fib-4">
+               <button className="h-fib-5 px-fib-4 bg-titanium text-space-black font-display text-xs uppercase tracking-widest hover:bg-specialist-orange hover:text-white transition-colors duration-500">
+                 View Laboratory
+               </button>
+               <button className="h-fib-5 px-fib-4 border border-titanium/20 text-titanium font-display text-xs uppercase tracking-widest hover:border-titanium transition-colors duration-500">
+                 Technical Brief
+               </button>
              </div>
-          </div>
+          </motion.div>
         </div>
       </div>
       
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
-        <span className="mono-text text-[8px] vertical-text">Scroll</span>
-        <div className="w-[1px] h-12 bg-gold-champagne/20 relative overflow-hidden">
-          <div ref={lineRef} className="absolute top-0 left-0 w-full h-0 bg-gold-champagne" />
-        </div>
-      </div>
-
-      {/* Floating coordinates corner */}
-      <div className="absolute bottom-12 left-8 md:left-16 hidden md:block">
-        <div className="mono-text text-[9px] text-gold-champagne/30 leading-loose">
-          REF: GMB-TL-2024
-          <br />
-          LAB_ID: 024-ABRAR
+      {/* Golden Ratio Scroll Indicator */}
+      <div className="absolute bottom-fib-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-fib-3">
+        <span className="mono-text text-[8px] vertical-text opacity-40">STORY_SCROLL</span>
+        <div className="w-[1px] h-fib-6 bg-titanium/10 relative overflow-hidden">
+          <motion.div 
+            animate={{ y: ["-100%", "100%"] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-0 left-0 w-full h-full bg-specialist-orange" 
+          />
         </div>
       </div>
     </section>

@@ -36,35 +36,35 @@ export default function Testimonials() {
   }, [])
 
   return (
-    <section id="testimonials" className="py-32 md:py-64 px-8 md:px-16 bg-charcoal-deep text-gold-champagne">
+    <section id="testimonials" className="py-fib-8 md:py-fib-9 px-fib-4 md:px-fib-7 bg-transparent text-titanium">
       <div className="max-w-[1400px] mx-auto">
-        <div className="mb-24 flex flex-col md:flex-row justify-between items-end gap-8">
+        <div className="mb-fib-7 flex flex-col md:flex-row justify-between items-end gap-fib-4">
           <div>
-            <div className="mono-text mb-4 text-gold-champagne/40">CLIENT_AUDIT</div>
-            <h2 className="text-5xl md:text-7xl font-display">Testimonials</h2>
+            <div className="mono-text mb-fib-2 text-specialist-orange">CLIENT_AUDIT</div>
+            <h2 className="text-5xl md:text-7xl font-display tracking-tighter">Testimonials</h2>
           </div>
         </div>
 
-        <div className="min-h-[400px] flex flex-col justify-center border border-gold-champagne/10 p-12 relative overflow-hidden">
+        <div className="min-h-[400px] flex flex-col justify-center border border-white/5 p-fib-7 relative overflow-hidden glassmorphism">
           {/* Decorative marks */}
-          <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-gold-champagne/40" />
-          <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-gold-champagne/40" />
-          <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-gold-champagne/40" />
-          <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-gold-champagne/40" />
+          <div className="absolute top-0 left-0 w-fib-2 h-fib-2 border-t border-l border-titanium/40" />
+          <div className="absolute top-0 right-0 w-fib-2 h-fib-2 border-t border-r border-titanium/40" />
+          <div className="absolute bottom-0 left-0 w-fib-2 h-fib-2 border-b border-l border-titanium/40" />
+          <div className="absolute bottom-0 right-0 w-fib-2 h-fib-2 border-b border-r border-titanium/40" />
 
-          <p className={`text-3xl md:text-5xl font-display italic leading-relaxed mb-16 transition-all duration-700 ${opacity === 0 ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-y-0'}`}>
+          <p className={`text-3xl md:text-5xl font-display italic leading-relaxed mb-fib-7 transition-all duration-700 ${opacity === 0 ? 'opacity-0 -translate-y-fib-2' : 'opacity-100 translate-y-0'}`}>
             "{testimonials[current].quote}"
           </p>
-          <div className={`transition-all duration-700 ${opacity === 0 ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
+          <div className={`transition-all duration-700 ${opacity === 0 ? 'opacity-0 translate-y-fib-2' : 'opacity-100 translate-y-0'}`}>
             <p className="text-xl font-body tracking-wider uppercase">{testimonials[current].name}</p>
-            <p className="mono-text text-[10px] text-gold-champagne/40 mt-2">{testimonials[current].location}</p>
+            <p className="mono-text text-[10px] text-titanium/40 mt-fib-1">{testimonials[current].location}</p>
           </div>
 
-          <div className="absolute bottom-12 right-12 flex gap-2">
+          <div className="absolute bottom-fib-6 right-fib-6 flex gap-fib-1">
             {testimonials.map((_, i) => (
               <div 
                 key={i} 
-                className={`h-[2px] transition-all duration-500 ${i === current ? 'w-12 bg-gold-champagne' : 'w-4 bg-gold-champagne/20'}`} 
+                className={`h-[2px] transition-all duration-500 ${i === current ? 'w-fib-5 bg-titanium' : 'w-fib-3 bg-titanium/20'}`} 
               />
             ))}
           </div>
