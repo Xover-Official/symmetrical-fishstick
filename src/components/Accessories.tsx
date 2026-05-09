@@ -1,14 +1,39 @@
 'use client'
 
+import Image from 'next/image'
 import ScrambleText from './ScrambleText'
 
 const products = [
-  { name: 'Ultra-Clear Polymer Shell', price: 1500 },
-  { name: 'GaN Technical Charger 20W', price: 3500 },
-  { name: 'Ion-Strengthened Glass', price: 800 },
-  { name: 'High-Speed Data Bridge', price: 1200 },
-  { name: 'Silicone Protective Matrix', price: 600 },
-  { name: 'High-Density Power Module', price: 4500 },
+  { 
+    name: 'Ultra-Clear Polymer Shell', 
+    price: 1500,
+    image: 'https://images.unsplash.com/photo-1610792516307-ea5acd3c3800?auto=format&fit=crop&q=80&w=800'
+  },
+  { 
+    name: 'GaN Technical Charger 20W', 
+    price: 3500,
+    image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&q=80&w=800'
+  },
+  { 
+    name: 'Ion-Strengthened Glass', 
+    price: 800,
+    image: 'https://images.unsplash.com/photo-1556656793-062ff987b50d?auto=format&fit=crop&q=80&w=800'
+  },
+  { 
+    name: 'High-Speed Data Bridge', 
+    price: 1200,
+    image: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&q=80&w=800'
+  },
+  { 
+    name: 'Silicone Protective Matrix', 
+    price: 600,
+    image: 'https://images.unsplash.com/photo-1603313011101-31c72ee781f3?auto=format&fit=crop&q=80&w=800'
+  },
+  { 
+    name: 'High-Density Power Module', 
+    price: 4500,
+    image: 'https://images.unsplash.com/photo-1625842268584-8f3bf9ff16a0?auto=format&fit=crop&q=80&w=800'
+  },
 ]
 
 export default function Accessories() {
@@ -35,12 +60,18 @@ export default function Accessories() {
           {products.map((product) => (
             <div key={product.name} className="group">
               <div className="aspect-[4/5] bg-white/[0.02] border border-white/5 mb-fib-4 relative overflow-hidden flex items-center justify-center">
-                 <div className="text-[10rem] opacity-[0.03] group-hover:opacity-10 transition-opacity duration-700 select-none font-display text-white">
-                   ACC
-                 </div>
-                 <div className="absolute inset-0 bg-gradient-to-tr from-titanium/5 to-transparent" />
-                 <div className="absolute bottom-fib-2 left-fib-2 mono-text text-[8px] text-titanium/20">
+                 <Image 
+                    src={product.image} 
+                    alt={product.name}
+                    fill
+                    className="object-cover grayscale contrast-125 opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-t from-space-black via-transparent to-transparent opacity-60" />
+                 <div className="absolute bottom-fib-2 left-fib-2 mono-text text-[8px] text-titanium/20 z-10">
                    CAT_REF: SKU_{product.name.substring(0, 3).toUpperCase()}
+                 </div>
+                 <div className="absolute top-fib-2 right-fib-2 mono-text text-[8px] text-titanium/40 z-10 border border-titanium/10 px-1">
+                   TECH_SPEC_V2.4
                  </div>
               </div>
               <div className="flex justify-between items-start">
