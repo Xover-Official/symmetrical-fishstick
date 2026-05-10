@@ -2,6 +2,7 @@
 
 import React, { Suspense, useState } from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { Canvas } from '@react-three/fiber'
 import { PresentationControls, Float, PerspectiveCamera } from '@react-three/drei'
 import Image from 'next/image'
@@ -103,20 +104,22 @@ export default function Services() {
             viewport={{ once: true }}
             className="md:col-span-8 md:row-span-2 relative overflow-hidden group cursor-pointer border border-white/5"
           >
-            <Image 
-              src="https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&q=80&w=1200" 
-              alt="Neon City Reflection"
-              fill
-              className="object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-[2000ms] ease-out"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-space-black via-space-black/20 to-transparent" />
-            <div className="absolute bottom-fib-5 left-fib-5">
-              <span className="mono-text text-specialist-orange mb-fib-2 block">ACQUISITION_CHANNEL</span>
-              <h3 className="text-5xl font-display uppercase tracking-tighter">Elite Sales</h3>
-              <p className="text-xs text-titanium/50 mt-fib-3 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                Sourcing the rarest Titanium configurations for the discerning collector.
-              </p>
-            </div>
+            <Link href="/collection" className="block w-full h-full">
+              <Image 
+                src="https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&q=80&w=1200" 
+                alt="Neon City Reflection"
+                fill
+                className="object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-[2000ms] ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-space-black via-space-black/20 to-transparent" />
+              <div className="absolute bottom-fib-5 left-fib-5">
+                <span className="mono-text text-specialist-orange mb-fib-2 block">ACQUISITION_CHANNEL</span>
+                <h3 className="text-5xl font-display uppercase tracking-tighter">Elite Sales</h3>
+                <p className="text-xs text-titanium/50 mt-fib-3 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                  Sourcing the rarest Titanium configurations for the discerning collector.
+                </p>
+              </div>
+            </Link>
           </motion.div>
 
           {/* Repairs Card */}
@@ -126,20 +129,22 @@ export default function Services() {
             viewport={{ once: true }}
             className="md:col-span-4 md:row-span-3 relative overflow-hidden group cursor-pointer border border-white/5"
           >
-            <Image 
-              src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&q=80&w=800" 
-              alt="Macro Laser Chip"
-              fill
-              className="object-cover opacity-30 group-hover:opacity-50 group-hover:scale-[1.02] transition-all duration-[2000ms] ease-out"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-space-black/50 to-space-black" />
-            <div className="absolute bottom-fib-5 left-fib-5">
-              <span className="mono-text text-specialist-orange mb-fib-2 block">RESTORATION_LAB</span>
-              <h3 className="text-5xl font-display uppercase tracking-tighter">Clinical<br/>Repairs</h3>
-              <p className="text-xs text-titanium/50 mt-fib-4 max-w-[200px] opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                Micron-level precision in board-level restoration and component fidelity.
-              </p>
-            </div>
+            <Link href="/services" className="block w-full h-full">
+              <Image 
+                src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&q=80&w=800" 
+                alt="Macro Laser Chip"
+                fill
+                className="object-cover opacity-30 group-hover:opacity-50 group-hover:scale-[1.02] transition-all duration-[2000ms] ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-space-black/50 to-space-black" />
+              <div className="absolute bottom-fib-5 left-fib-5">
+                <span className="mono-text text-specialist-orange mb-fib-2 block">RESTORATION_LAB</span>
+                <h3 className="text-5xl font-display uppercase tracking-tighter">Clinical<br/>Repairs</h3>
+                <p className="text-xs text-titanium/50 mt-fib-4 max-w-[200px] opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                  Micron-level precision in board-level restoration and component fidelity.
+                </p>
+              </div>
+            </Link>
           </motion.div>
 
           {/* 3D Interactive Card */}
@@ -180,17 +185,19 @@ export default function Services() {
             viewport={{ once: true }}
             className="md:col-span-4 md:row-span-1 relative overflow-hidden group cursor-pointer border border-white/5"
           >
-             <Image 
-              src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&q=80&w=800" 
-              alt="Devices on Velvet"
-              fill
-              className="object-cover opacity-20 grayscale group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-[2000ms] ease-out"
-            />
-            <div className="absolute inset-0 bg-space-black/40 group-hover:bg-space-black/10 transition-colors duration-700" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center p-fib-4">
-              <span className="mono-text text-specialist-orange mb-fib-1 opacity-0 group-hover:opacity-100 transition-opacity">EXCHANGE_PROTOCOL</span>
-              <h3 className="text-3xl font-display uppercase tracking-widest text-center">Bespoke<br/>Purchasing</h3>
-            </div>
+            <Link href="/services" className="block w-full h-full">
+              <Image 
+                src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&q=80&w=800" 
+                alt="Devices on Velvet"
+                fill
+                className="object-cover opacity-20 grayscale group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-[2000ms] ease-out"
+              />
+              <div className="absolute inset-0 bg-space-black/40 group-hover:bg-space-black/10 transition-colors duration-700" />
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-fib-4">
+                <span className="mono-text text-specialist-orange mb-fib-1 opacity-0 group-hover:opacity-100 transition-opacity">EXCHANGE_PROTOCOL</span>
+                <h3 className="text-3xl font-display uppercase tracking-widest text-center">Bespoke<br/>Purchasing</h3>
+              </div>
+            </Link>
           </motion.div>
 
           {/* Calculator Card */}
