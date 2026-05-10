@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import ScrambleText from './ScrambleText'
 
@@ -100,12 +101,12 @@ export default function Hero() {
                ABRAR_MARKET_STUDIO_24
              </div>
              <div className="flex gap-fib-4">
-               <button className="h-fib-5 px-fib-5 bg-titanium text-space-black font-display text-[10px] uppercase tracking-widest hover:bg-specialist-orange hover:text-white transition-all duration-700 cursor-pointer">
+               <Link href="/lab" className="h-fib-5 px-fib-5 bg-titanium text-space-black font-display text-[10px] uppercase tracking-widest hover:bg-specialist-orange hover:text-white transition-all duration-700 cursor-pointer flex items-center">
                  View Laboratory
-               </button>
-               <button className="h-fib-5 px-fib-5 border border-titanium/20 text-titanium font-display text-[10px] uppercase tracking-widest hover:border-titanium transition-all duration-700 cursor-pointer">
+               </Link>
+               <Link href="/services" className="h-fib-5 px-fib-5 border border-titanium/20 text-titanium font-display text-[10px] uppercase tracking-widest hover:border-titanium transition-all duration-700 cursor-pointer flex items-center">
                  Technical Brief
-               </button>
+               </Link>
              </div>
           </motion.div>
         </div>
